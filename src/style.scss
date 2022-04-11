@@ -1,0 +1,148 @@
+$shadow: #536e87;
+$btn-hover: #536e87;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+  
+body {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+}
+  
+.logo {
+  width: 60px;
+  margin: 0 40px 0 1rem;
+}
+  
+.logo-img {
+  width: 100%;
+}
+  
+.nav-bar {
+  display: flex;
+  max-width: 90%;
+  margin: 10px auto;
+  padding: 5px;
+  align-items: center;
+}
+  
+.navigation {
+  display: flex;
+  list-style: none;
+  .link {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+  }
+  
+  .link:hover,
+  .active {
+    color: blue;
+  }
+}
+  
+.contact-link {
+  margin-right: 10px;
+}
+  
+.add-new-link {
+  padding: 0 20px;
+  margin: 0 20px;
+}
+  
+#cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  border: 2px solid black;
+  box-shadow: 3px 3px #536e87;
+  margin-bottom: 1rem
+}
+
+.poke-img {
+  width: 80%;
+  height: 80%;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+
+}
+
+.title {
+  padding-right: 3rem;
+}
+
+.like {
+  border: none;
+  background: none;
+  cursor: pointer;
+  background-image: url('./images/like.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 30px;
+  height: 30px;
+}
+
+.like:hover {
+  background-image: url('./images/heart.png');
+}
+.count {
+  display: contents;
+}
+
+.likes-count {
+  align-self: end;  
+  padding: 0.5rem 0 0.2rem;
+}
+
+.btns {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment,
+.reservation {
+  background: none;
+  border: 2px solid black;
+  box-shadow: 3px 3px $shadow;
+  cursor: pointer;
+  margin: 0.5rem 0;
+  padding: 5px;
+}
+
+.comment:hover,
+.reservation:hover {
+  background: $btn-hover;
+  color: #fff;
+}
+
+footer {
+  max-width: 100%;
+  padding: 5px 5px 5px 15px;
+  border: 2px solid #000;
+  background-color: #fff;
+  margin-top: 2rem;
+}
