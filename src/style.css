@@ -65,4 +65,12 @@ body {
   padding: 0 20px;
   margin: 0 20px;
 }
+
+footer {
+  max-width: 100%;
+  padding: 5px 5px 5px 15px;
+  border: 2px solid #000;
+  background-color: #fff;
+  margin-top: 2rem;
+}
 /*# sourceMappingURL=style.css.map */
