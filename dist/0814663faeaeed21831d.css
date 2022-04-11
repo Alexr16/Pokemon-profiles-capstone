@@ -52,7 +52,9 @@ body {
 
 .navigation .link:hover,
 .navigation .active {
-  color: blue;
+  color: #d5a100;
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 .contact-link {
