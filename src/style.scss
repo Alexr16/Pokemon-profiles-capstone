@@ -27,7 +27,7 @@ body {
   display: flex;
   max-width: 90%;
   margin: 10px auto;
-  padding: 5px;
+  padding: 5px 5px 50px 5px;
   align-items: center;
 }
   
@@ -42,7 +42,9 @@ body {
   
   .link:hover,
   .active {
-    color: #d5a100;;
+    color: #d5a100;
+    text-decoration: underline;
+    font-weight: bold;
   }
 }
   
@@ -81,7 +83,7 @@ body {
   flex-direction: column;
   align-items: center;
   margin: auto;
-  margin-bottom: 1rem;
+  margin-bottom: 2.5rem;
 }
 
 .card-title {
