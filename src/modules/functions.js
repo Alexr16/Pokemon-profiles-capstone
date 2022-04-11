@@ -1,4 +1,4 @@
-import { display } from './DOM.js';
+import { display } from './dom.js';
 
 const createCards = () => {
   const monsters = ['charizard', 'pikachu', 'arceus', 'magmar', 'dragonite', 'mewtwo', 'arcanine'];
