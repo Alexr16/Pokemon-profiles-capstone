@@ -1,9 +1,27 @@
-import { getPokemon } from './api.js';
+import { getPokemon, getLikes, createLikes } from './api.js';
 
 const capitalized = (string) => {
   const capit = string.split('');
   capit[0] = capit[0].toUpperCase();
   return capit.join('');
+};
+
+// const returnLikes = async (id) => {
+//   let likesCounter;
+//   const data = await getLikes();
+//   data.forEach((monster) => {
+//     if (monster.item_id === id) {
+//       likesCounter = monster.likes;
+//     }
+//   });
+//   return likesCounter;
+// };
+
+const sendLike = (pokemon) => {
+  const data = {
+    item_id: pokemon,
+  };
+  createLikes(data);
 };
 
 const display = async (monster) => {
@@ -36,13 +54,24 @@ const display = async (monster) => {
   like.classList.add('like');
   cardTitle.appendChild(like);
 
+  like.addEventListener('click', () => {
+    sendLike(pokemon.name);
+  });
+
   const likesText = document.createElement('div');
   likesText.classList.add('count');
   card.appendChild(likesText);
 
   const likesCount = document.createElement('p');
   likesCount.classList.add('likes-count');
-  likesCount.innerText = '5 likes';
+  let likesCounter;
+  const data = await getLikes();
+  data.forEach((monster) => {
+    if (monster.item_id === pokemon.name) {
+      likesCounter = monster.likes;
+    }
+  });
+  likesCount.innerText = `${likesCounter} likes`;
   likesText.appendChild(likesCount);
 
   const buttons = document.createElement('div');
