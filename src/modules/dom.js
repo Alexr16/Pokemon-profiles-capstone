@@ -1,4 +1,6 @@
-import { getPokemon, getLikes, createLikes, getComment } from './api.js';
+import {
+  getPokemon, getLikes, createLikes, getComment,
+} from './api.js';
 
 const body = document.getElementById('body');
 
@@ -91,15 +93,14 @@ const popupWindow = async (pokemon) => {
   const ul = document.createElement('ul');
   ul.classList.add('ulComment');
   commentInfo.appendChild(ul);
-  
-  for(let i=0; i <dataComment.length; i += 1) {
+
+  for (let i = 0; i < dataComment.length; i += 1) {
     const li = document.createElement('li');
     li.classList.add('liComment');
     li.innerHTML = `${dataComment[i].creation_date} ${dataComment[i].username}: ${dataComment[i].comment}`;
     ul.appendChild(li);
   }
-  console.log(dataComment);
- 
+
   commentContain.appendChild(commentInfo);
 
   const formContain = document.createElement('div');

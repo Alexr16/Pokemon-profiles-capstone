@@ -40,7 +40,8 @@ const getLikes = async () => {
 //     headers: {
 //       'Content-Type': 'application/json; charset=UTF-8',
 //     },
-//     body: JSON.stringify({ item_id: data.item_id, username: data.username, comment: data.comment }),
+//     body: JSON.stringify({ item_id: data.item_id, username: data.username,
+//  comment: data.comment }),
 //   });
 // };
 
@@ -50,4 +51,6 @@ const getComment = async (id) => {
   return likes;
 };
 
-export { getPokemon, createLikes, getLikes, getComment };
+export {
+  getPokemon, createLikes, getLikes, getComment,
+};
