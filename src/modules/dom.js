@@ -1,23 +1,12 @@
 import { getPokemon } from './api.js';
 
+const body = document.getElementById('body');
+
 const capitalized = (string) => {
   const capit = string.split('');
   capit[0] = capit[0].toUpperCase();
   return capit.join('');
 };
-
-// const background =  document.getElementsByClassName('modalBackground');
-// const modal =  document.getElementsByClassName('modalContainer');
-
-// const closeModal = () => {
-//   body.classList.toggle('scroll');
-//   if (background) {
-//     background.remove();
-//   }
-//   if (modal) {
-//     modal.remove();
-//   }
-// }
 
 const popupWindow = (pokemon) => {
   const cardContainer = document.getElementById('cards');
@@ -35,7 +24,7 @@ const popupWindow = (pokemon) => {
   closeBtn.addEventListener('click', () => {
     body.classList.toggle('scroll');
     modalBackground.remove();
-  })
+  });
 
   const imageontainer = document.createElement('div');
   imageontainer.classList.add('image-popup');
@@ -63,12 +52,12 @@ const popupWindow = (pokemon) => {
   const weight = document.createElement('span');
   weight.classList.add('weight');
   weight.innerText = `Weight: ${pokemon.weight}`;
-  
+
   pokeInfo.appendChild(weight);
 
   const pokeID = document.createElement('span');
   pokeID.classList.add('pokeId');
-  pokeID.innerText =`id: ${pokemon.id} `;
+  pokeID.innerText = `id: ${pokemon.id} `;
   pokeInfo.appendChild(pokeID);
 
   const type = document.createElement('span');
@@ -130,7 +119,7 @@ const popupWindow = (pokemon) => {
   formInsight.setAttribute('placeholder', 'Your insight');
   form.appendChild(formInsight);
 
-  const formButton  = document.createElement('input');
+  const formButton = document.createElement('input');
   formButton.classList.add('formButton');
   formButton.setAttribute('type', 'submit');
   formButton.setAttribute('value', 'Comment');
@@ -138,8 +127,7 @@ const popupWindow = (pokemon) => {
 
   formContain.appendChild(form);
   modalBackground.appendChild(modalContainer);
-}
-
+};
 
 const display = async (monster) => {
   const pokemon = await getPokemon(monster);

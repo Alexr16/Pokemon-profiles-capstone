@@ -159,6 +159,7 @@ footer {
   background-color: #fff;
   align-content: center;
 }
+
 .modalContainer {
   position: fixed;
   top: 0;
@@ -197,11 +198,10 @@ footer {
 }
 
 .pokeInfo {
-  display: flex;
-  justify-content: center;
   gap: 10px;
   text-align: left;
   display: grid;
+  justify-content: center;
   grid-template-columns: auto auto;
   grid-row-gap: 10px;
   grid-column-gap: 77px;
