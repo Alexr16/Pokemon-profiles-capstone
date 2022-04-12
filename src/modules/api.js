@@ -1,5 +1,4 @@
 const baseURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
-const appId = 'AWM7JxII6f3dlrfRP916';
 const urlLikes = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/AWM7JxII6f3dlrfRP916/likes/';
 
 const getPokemon = async (id) => {
@@ -19,7 +18,7 @@ const createApp = async () => {
 };
 
 const createLikes = async (data) => {
-  const response = await fetch(urlLikes, {
+  await fetch(urlLikes, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json; charset=UTF-8',

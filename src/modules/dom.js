@@ -6,24 +6,6 @@ const capitalized = (string) => {
   return capit.join('');
 };
 
-// const returnLikes = async (id) => {
-//   let likesCounter;
-//   const data = await getLikes();
-//   data.forEach((monster) => {
-//     if (monster.item_id === id) {
-//       likesCounter = monster.likes;
-//     }
-//   });
-//   return likesCounter;
-// };
-
-const sendLike = (pokemon) => {
-  const data = {
-    item_id: pokemon,
-  };
-  createLikes(data);
-};
-
 const display = async (monster) => {
   const pokemon = await getPokemon(monster);
   const cardContainer = document.getElementById('cards');
@@ -54,24 +36,18 @@ const display = async (monster) => {
   like.classList.add('like');
   cardTitle.appendChild(like);
 
-  like.addEventListener('click', () => {
-    sendLike(pokemon.name);
-  });
-
   const likesText = document.createElement('div');
   likesText.classList.add('count');
   card.appendChild(likesText);
 
   const likesCount = document.createElement('p');
   likesCount.classList.add('likes-count');
-  let likesCounter;
   const data = await getLikes();
-  data.forEach((monster) => {
-    if (monster.item_id === pokemon.name) {
-      likesCounter = monster.likes;
-    }
+  const likeApi = data.find((x) => {
+    if (x.item_id === pokemon.name) return true;
+    return false;
   });
-  likesCount.innerText = `${likesCounter} likes`;
+  likesCount.innerHTML = `${likeApi.likes} likes`;
   likesText.appendChild(likesCount);
 
   const buttons = document.createElement('div');
