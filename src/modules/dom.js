@@ -10,6 +10,13 @@ const capitalized = (string) => {
   return capit.join('');
 };
 
+const sendLike = (pokemon) => {
+  const data = {
+    item_id: pokemon,
+  };
+  createLikes(data);
+};
+
 const popupWindow = async (pokemon) => {
   const cardContainer = document.getElementById('cards');
   const modalBackground = document.createElement('section');
