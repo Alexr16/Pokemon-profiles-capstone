@@ -1,5 +1,6 @@
 const baseURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
 const urlLikes = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/AWM7JxII6f3dlrfRP916/likes/';
+const urlComments = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/AWM7JxII6f3dlrfRP916/comments';
 
 const getPokemon = async (id) => {
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
@@ -33,4 +34,20 @@ const getLikes = async () => {
   return likes;
 };
 
-export { getPokemon, createLikes, getLikes };
+// const createComment = async (data) => {
+//   await fetch(urlComments, {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json; charset=UTF-8',
+//     },
+//     body: JSON.stringify({ item_id: data.item_id, username: data.username, comment: data.comment }),
+//   });
+// };
+
+const getComment = async (id) => {
+  const response = await fetch(`${urlComments}?item_id=${id}`);
+  const likes = await response.json();
+  return likes;
+};
+
+export { getPokemon, createLikes, getLikes, getComment };
