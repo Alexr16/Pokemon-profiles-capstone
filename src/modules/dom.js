@@ -55,11 +55,81 @@ const display = async (monster) => {
   comments.innerText = 'Comment';
   buttons.appendChild(comments);
 
+  comments.addEventListener('click', () => {
+    popupWindow(pokemon);
+  });
+
   const reservations = document.createElement('button');
   reservations.classList.add('reservation');
   reservations.id = 'reservation-btn';
   reservations.innerText = 'Reservations';
   buttons.appendChild(reservations);
 };
+
+const popupWindow = (pokemon) => {
+  const cardContainer = document.getElementById('cards');
+  const modalContainer = document.createElement('section');
+  modalContainer.className = 'modalContainer';
+
+  const img1 = document.createElement('img');
+  img1.classList.add('close-img');
+  img1.src = './images/close.png';
+  const cancelBtn = document.createElement('p');
+  cancelBtn.classList.add('cancelBtn');
+  cancelBtn.appendChild(img1);
+  modalContainer.appendChild(cancelBtn);
+
+  const imageontainer = document.createElement('div');
+  imageontainer.classList.add('image-popup');
+  modalContainer.appendChild(imageontainer);
+
+  const image = document.createElement('img');
+  image.classList.add('popup-img');
+  image.src = pokemon.sprites.other.dream_world.front_default;
+  image.alt = pokemon.name;
+  imageontainer.appendChild(image);
+
+  const popTitle = document.createElement('div');
+  popTitle.classList.add('pop-title');
+  modalContainer.appendChild(popTitle);
+
+  const title = document.createElement('h2');
+  title.classList.add('title');
+  title.innerText = capitalized(pokemon.name);
+  popTitle.appendChild(title);
+
+  const pokeInfo = document.createElement('div');
+  pokeInfo.classList.add('pokeInfo');
+  modalContainer.appendChild(pokeInfo);
+
+  const weight = document.createElement('span');
+  weight.classList.add('weight');
+  weight.innerText = `Weight: ${pokemon.weight}`;
+  
+  pokeInfo.appendChild(weight);
+
+  const pokeID = document.createElement('span');
+  pokeID.classList.add('pokeId');
+  pokeID.innerText =`id: ${pokemon.id} `;
+  pokeInfo.appendChild(pokeID);
+
+  const type = document.createElement('span');
+  type.classList.add('type');
+  type.innerText = `Type: ${pokemon.types[0].type.name}`;
+  pokeInfo.appendChild(type);
+
+  const ability1 = document.createElement('span');
+  ability1.classList.add('ability1');
+  ability1.innerText = `Ability 1: ${pokemon.abilities[0].ability.name}`;
+  pokeInfo.appendChild(ability1);
+
+  const ability2 = document.createElement('span');
+  ability2.classList.add('ability2');
+  ability2.innerText = `Ability 2: ${pokemon.abilities[1].ability.name}`;
+  pokeInfo.appendChild(ability2);
+
+  cardContainer.appendChild(modalContainer);
+}
+
 
 export { display };
