@@ -6,78 +6,36 @@ const capitalized = (string) => {
   return capit.join('');
 };
 
-const display = async (monster) => {
-  const pokemon = await getPokemon(monster);
-  const cardContainer = document.getElementById('cards');
-  const card = document.createElement('div');
-  card.classList.add('card-container');
-  cardContainer.appendChild(card);
+// const background =  document.getElementsByClassName('modalBackground');
+// const modal =  document.getElementsByClassName('modalContainer');
 
-  const imageontainer = document.createElement('div');
-  imageontainer.classList.add('image-container');
-  card.appendChild(imageontainer);
-
-  const image = document.createElement('img');
-  image.classList.add('poke-img');
-  image.src = pokemon.sprites.other.dream_world.front_default;
-  image.alt = pokemon.name;
-  imageontainer.appendChild(image);
-
-  const cardTitle = document.createElement('div');
-  cardTitle.classList.add('card-title');
-  card.appendChild(cardTitle);
-
-  const title = document.createElement('h2');
-  title.classList.add('title');
-  title.innerText = capitalized(pokemon.name);
-  cardTitle.appendChild(title);
-
-  const like = document.createElement('button');
-  like.classList.add('like');
-  cardTitle.appendChild(like);
-
-  const likesText = document.createElement('div');
-  likesText.classList.add('count');
-  card.appendChild(likesText);
-
-  const likesCount = document.createElement('p');
-  likesCount.classList.add('likes-count');
-  likesCount.innerText = '5 likes';
-  likesText.appendChild(likesCount);
-
-  const buttons = document.createElement('div');
-  buttons.classList.add('btns');
-  card.appendChild(buttons);
-
-  const comments = document.createElement('button');
-  comments.classList.add('comment');
-  comments.id = 'comment-btn';
-  comments.innerText = 'Comment';
-  buttons.appendChild(comments);
-
-  comments.addEventListener('click', () => {
-    popupWindow(pokemon);
-  });
-
-  const reservations = document.createElement('button');
-  reservations.classList.add('reservation');
-  reservations.id = 'reservation-btn';
-  reservations.innerText = 'Reservations';
-  buttons.appendChild(reservations);
-};
+// const closeModal = () => {
+//   body.classList.toggle('scroll');
+//   if (background) {
+//     background.remove();
+//   }
+//   if (modal) {
+//     modal.remove();
+//   }
+// }
 
 const popupWindow = (pokemon) => {
   const cardContainer = document.getElementById('cards');
+  const modalBackground = document.createElement('section');
+  modalBackground.className = 'modalBackground';
+  cardContainer.appendChild(modalBackground);
+
   const modalContainer = document.createElement('section');
   modalContainer.className = 'modalContainer';
 
-  const img1 = document.createElement('img');
-  img1.classList.add('close-img');
-  img1.src = './images/close.png';
-  const cancelBtn = document.createElement('p');
-  cancelBtn.classList.add('cancelBtn');
-  cancelBtn.appendChild(img1);
-  modalContainer.appendChild(cancelBtn);
+  const closeBtn = document.createElement('button');
+  closeBtn.classList.add('closeBtn');
+  modalContainer.appendChild(closeBtn);
+
+  closeBtn.addEventListener('click', () => {
+    body.classList.toggle('scroll');
+    modalBackground.remove();
+  })
 
   const imageontainer = document.createElement('div');
   imageontainer.classList.add('image-popup');
@@ -94,7 +52,7 @@ const popupWindow = (pokemon) => {
   modalContainer.appendChild(popTitle);
 
   const title = document.createElement('h2');
-  title.classList.add('title');
+  title.classList.add('poke-title');
   title.innerText = capitalized(pokemon.name);
   popTitle.appendChild(title);
 
@@ -179,8 +137,69 @@ const popupWindow = (pokemon) => {
   form.appendChild(formButton);
 
   formContain.appendChild(form);
-  cardContainer.appendChild(modalContainer);
+  modalBackground.appendChild(modalContainer);
 }
 
+
+const display = async (monster) => {
+  const pokemon = await getPokemon(monster);
+  const cardContainer = document.getElementById('cards');
+  const card = document.createElement('div');
+  card.classList.add('card-container');
+  cardContainer.appendChild(card);
+
+  const imageontainer = document.createElement('div');
+  imageontainer.classList.add('image-container');
+  card.appendChild(imageontainer);
+
+  const image = document.createElement('img');
+  image.classList.add('poke-img');
+  image.src = pokemon.sprites.other.dream_world.front_default;
+  image.alt = pokemon.name;
+  imageontainer.appendChild(image);
+
+  const cardTitle = document.createElement('div');
+  cardTitle.classList.add('card-title');
+  card.appendChild(cardTitle);
+
+  const title = document.createElement('h2');
+  title.classList.add('title');
+  title.innerText = capitalized(pokemon.name);
+  cardTitle.appendChild(title);
+
+  const like = document.createElement('button');
+  like.classList.add('like');
+  cardTitle.appendChild(like);
+
+  const likesText = document.createElement('div');
+  likesText.classList.add('count');
+  card.appendChild(likesText);
+
+  const likesCount = document.createElement('p');
+  likesCount.classList.add('likes-count');
+  likesCount.innerText = '5 likes';
+  likesText.appendChild(likesCount);
+
+  const buttons = document.createElement('div');
+  buttons.classList.add('btns');
+  card.appendChild(buttons);
+
+  const comments = document.createElement('button');
+  comments.classList.add('comment');
+  comments.id = 'comment-btn';
+  comments.innerText = 'Comment';
+  buttons.appendChild(comments);
+
+  comments.addEventListener('click', () => {
+    body.classList.toggle('scroll');
+    popupWindow(pokemon);
+  });
+
+  const reservations = document.createElement('button');
+  reservations.classList.add('reservation');
+  reservations.id = 'reservation-btn';
+  reservations.innerText = 'Reservations';
+  buttons.appendChild(reservations);
+};
 
 export { display };
