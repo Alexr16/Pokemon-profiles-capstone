@@ -150,15 +150,25 @@ footer {
   margin-top: 2rem;
 }
 
-.modalContainer {
-  transform: scale(1);
+.modalBackground {
   position: fixed;
-  top: 3%;
-  left: 20%;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  align-content: center;
+}
+.modalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
   height: 95%;
-  width: 55%;
-  margin-left: 30px;
-  padding-left: 16px;
+  width: 95%;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
   background-color: #fff;
   border: 3px solid #000;
   align-content: center;
@@ -167,14 +177,23 @@ footer {
   padding-bottom: 28px;
 }
 
+.scroll {
+  overflow-y: hidden;
+}
+
 .image-popup {
   display: flex;
   justify-content: center;
 }
 
 .popup-img {
-  width: 20%;
-  height: 20%;
+  padding-top: 20px;
+  width: 25%;
+  height: 25%;
+}
+
+.poke-title {
+  font-size: 3em;
 }
 
 .pokeInfo {
@@ -237,4 +256,21 @@ footer {
 .commentInfo {
   display: flex;
   justify-content: center;
+}
+
+.closeBtn {
+  display: block;
+  position: absolute;
+  right: 10px;
+  transition: 0.3s;
+  border: none;
+  background: none;
+  cursor: pointer;
+  background-image: url('./images/close.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 30px;
+  height: 30px;
+  margin-top: 10px;
 }
