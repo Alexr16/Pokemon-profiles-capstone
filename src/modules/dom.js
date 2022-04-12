@@ -1,4 +1,4 @@
-import { getPokemon } from './api.js';
+import { getPokemon, getLikes, createLikes } from './api.js';
 
 const body = document.getElementById('body');
 
@@ -165,7 +165,12 @@ const display = async (monster) => {
 
   const likesCount = document.createElement('p');
   likesCount.classList.add('likes-count');
-  likesCount.innerText = '5 likes';
+  const data = await getLikes();
+  const likeApi = data.find((x) => {
+    if (x.item_id === pokemon.name) return true;
+    return false;
+  });
+  likesCount.innerHTML = `${likeApi.likes} likes`;
   likesText.appendChild(likesCount);
 
   const buttons = document.createElement('div');
