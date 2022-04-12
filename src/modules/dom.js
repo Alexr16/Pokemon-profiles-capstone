@@ -1,4 +1,6 @@
-import { getPokemon, getLikes, createLikes } from './api.js';
+import {
+  getPokemon, getLikes, createLikes, getComment,
+} from './api.js';
 
 const body = document.getElementById('body');
 
@@ -8,7 +10,7 @@ const capitalized = (string) => {
   return capit.join('');
 };
 
-const popupWindow = (pokemon) => {
+const popupWindow = async (pokemon) => {
   const cardContainer = document.getElementById('cards');
   const modalBackground = document.createElement('section');
   modalBackground.className = 'modalBackground';
@@ -79,14 +81,26 @@ const popupWindow = (pokemon) => {
   commentContain.classList.add('commentContain');
   modalContainer.appendChild(commentContain);
 
+  const dataComment = await getComment(pokemon.name);
+
   const commentTitle = document.createElement('h2');
   commentTitle.classList.add('commentTitle');
-  commentTitle.textContent = 'Comments(3)';
+  commentTitle.textContent = `Comments(${dataComment.length})`;
   commentContain.appendChild(commentTitle);
 
   const commentInfo = document.createElement('div');
   commentInfo.classList.add('commentInfo');
-  commentInfo.textContent = '09/12/2021 Tafara: Great website guys!';
+  const ul = document.createElement('ul');
+  ul.classList.add('ulComment');
+  commentInfo.appendChild(ul);
+
+  for (let i = 0; i < dataComment.length; i += 1) {
+    const li = document.createElement('li');
+    li.classList.add('liComment');
+    li.innerHTML = `${dataComment[i].creation_date} ${dataComment[i].username}: ${dataComment[i].comment}`;
+    ul.appendChild(li);
+  }
+
   commentContain.appendChild(commentInfo);
 
   const formContain = document.createElement('div');
