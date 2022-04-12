@@ -149,3 +149,128 @@ footer {
   background-color: #fff;
   margin-top: 2rem;
 }
+
+.modalBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  align-content: center;
+}
+
+.modalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 95%;
+  width: 95%;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  background-color: #fff;
+  border: 3px solid #000;
+  align-content: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-bottom: 28px;
+}
+
+.scroll {
+  overflow-y: hidden;
+}
+
+.image-popup {
+  display: flex;
+  justify-content: center;
+}
+
+.popup-img {
+  padding-top: 20px;
+  width: 25%;
+  height: 25%;
+}
+
+.poke-title {
+  font-size: 3em;
+}
+
+.pokeInfo {
+  gap: 10px;
+  text-align: left;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: auto auto;
+  grid-row-gap: 10px;
+  grid-column-gap: 77px;
+  font-weight: bold;
+}
+
+.pop-title {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+.form {
+  display: grid;
+  grid-template-rows: auto;
+  grid-row-gap: 20px;
+  width: 300px;
+  justify-content: center;
+}
+
+.formName,
+.formInsight {
+  border: 2px solid;
+  padding: 2px;
+}
+
+.formButton {
+  background: none;
+  border: 2px solid black;
+  box-shadow: 3px 3px $shadow;
+  cursor: pointer;
+  margin: 0.5rem 0;
+  padding: 5px;
+  width: 200px;
+}
+
+.formContain {
+  display: flex;
+  justify-content: center;
+}
+
+.commentContain {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.commentTitle {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.commentInfo {
+  display: flex;
+  justify-content: center;
+}
+
+.closeBtn {
+  display: block;
+  position: absolute;
+  right: 10px;
+  transition: 0.3s;
+  border: none;
+  background: none;
+  cursor: pointer;
+  background-image: url('./images/close.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 30px;
+  height: 30px;
+  margin-top: 10px;
+}
