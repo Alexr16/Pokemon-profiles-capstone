@@ -154,14 +154,17 @@ footer {
   transform: scale(1);
   position: fixed;
   top: 3%;
-  left: 5%;
+  left: 20%;
   height: 95%;
-  width: 85%;
+  width: 55%;
   margin-left: 30px;
   padding-left: 16px;
   background-color: #fff;
   border: 3px solid #000;
   align-content: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-bottom: 28px;
 }
 
 .image-popup {
@@ -175,11 +178,14 @@ footer {
 }
 
 .pokeInfo {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  text-align: left;
   display: grid;
   grid-template-columns: auto auto;
   grid-row-gap: 10px;
-  grid-column-gap: 0;
+  grid-column-gap: 77px;
   font-weight: bold;
 }
 
@@ -189,14 +195,46 @@ footer {
   padding-bottom: 30px;
 }
 
-// .pokeId {
-//   width: 200px;
-// }
+.form {
+  display: grid;
+  grid-template-rows: auto;
+  grid-row-gap: 20px;
+  width: 300px;
+  justify-content: center;
+}
 
-// .ability1 {
-//   width: 200px;
-// }
+.formName,
+.formInsight {
+  border: 2px solid;
+  padding: 2px;
+}
 
-// .weight {
-//   width: 200px;
-// }
+.formButton {
+  background: none;
+  border: 2px solid black;
+  box-shadow: 3px 3px $shadow;
+  cursor: pointer;
+  margin: 0.5rem 0;
+  padding: 5px;
+  width: 200px;
+}
+
+.formContain {
+  display: flex;
+  justify-content: center;
+}
+
+.commentContain {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.commentTitle {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.commentInfo {
+  display: flex;
+  justify-content: center;
+}

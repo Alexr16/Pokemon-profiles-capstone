@@ -128,6 +128,57 @@ const popupWindow = (pokemon) => {
   ability2.innerText = `Ability 2: ${pokemon.abilities[1].ability.name}`;
   pokeInfo.appendChild(ability2);
 
+  const commentContain = document.createElement('div');
+  commentContain.classList.add('commentContain');
+  modalContainer.appendChild(commentContain);
+
+  const commentTitle = document.createElement('h2');
+  commentTitle.classList.add('commentTitle');
+  commentTitle.textContent = 'Comments(3)';
+  commentContain.appendChild(commentTitle);
+
+  const commentInfo = document.createElement('div');
+  commentInfo.classList.add('commentInfo');
+  commentInfo.textContent = '09/12/2021 Tafara: Great website guys!';
+  commentContain.appendChild(commentInfo);
+
+  const formContain = document.createElement('div');
+  formContain.classList.add('formContain');
+  modalContainer.appendChild(formContain);
+
+  const form = document.createElement('form');
+  form.classList.add('form');
+  form.setAttribute('method', 'post');
+  form.setAttribute('action', 'submit.php');
+
+  const formTitle = document.createElement('h2');
+  formTitle.classList.add('formTitle');
+  formTitle.textContent = 'Add a comment';
+  form.appendChild(formTitle);
+
+  const formName = document.createElement('input');
+  formName.classList.add('formName');
+  formName.id = 'formName';
+  formName.setAttribute('type', 'text');
+  formName.setAttribute('name', 'name');
+  formName.setAttribute('placeholder', 'Your name');
+  form.appendChild(formName);
+
+  const formInsight = document.createElement('textarea');
+  formInsight.id = 'formInsight';
+  formInsight.classList.add('formInsight');
+  formInsight.setAttribute('type', 'textarea');
+  formInsight.setAttribute('name', 'name');
+  formInsight.setAttribute('placeholder', 'Your insight');
+  form.appendChild(formInsight);
+
+  const formButton  = document.createElement('input');
+  formButton.classList.add('formButton');
+  formButton.setAttribute('type', 'submit');
+  formButton.setAttribute('value', 'Comment');
+  form.appendChild(formButton);
+
+  formContain.appendChild(form);
   cardContainer.appendChild(modalContainer);
 }
 
