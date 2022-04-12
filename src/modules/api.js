@@ -26,8 +26,6 @@ const createLikes = async (data) => {
     },
     body: JSON.stringify({ item_id: data.item_id }),
   });
-  const res = await response.json();
-  return res;
 };
 
 const getLikes = async () => {
