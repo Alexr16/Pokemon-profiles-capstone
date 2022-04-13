@@ -6,6 +6,7 @@ const idArray = () => {
   const id = ['charizard', 'pikachu', 'ampharos', 'magmar', 'dragonite', 'mewtwo', 'arcanine', 'lugia', 'altaria'];
   return id;
 };
+
 const getPokemon = async (id) => {
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
   const data = await response.json();
