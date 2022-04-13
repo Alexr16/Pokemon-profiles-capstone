@@ -10,11 +10,20 @@ const capitalized = (string) => {
   return capit.join('');
 };
 
-const sendLike = (pokemon) => {
+const sendLike = async (pokemon) => {
   const data = {
     item_id: pokemon,
   };
-  createLikes(data);
+  Promise.resolve(await createLikes(data));
+};
+
+const updatelikes = async (id) => {
+  const data = await Promise.resolve(getLikes());
+  const likeApi = data.find((x) => {
+    if (x.item_id === id) return true;
+    return false;
+  });
+  return likeApi.likes;
 };
 
 const popupWindow = async (pokemon) => {
@@ -186,13 +195,13 @@ const display = async (monster) => {
 
   const likesCount = document.createElement('p');
   likesCount.classList.add('likes-count');
-  const data = await getLikes();
-  const likeApi = data.find((x) => {
-    if (x.item_id === pokemon.name) return true;
-    return false;
-  });
-  likesCount.innerHTML = `${likeApi.likes} likes`;
+  likesCount.innerHTML = `${await Promise.resolve(updatelikes(pokemon.name))} likes`;
   likesText.appendChild(likesCount);
+
+  like.addEventListener('click', async () => {
+    await Promise.resolve(sendLike(pokemon.name));
+    likesCount.innerHTML = `${await Promise.resolve(updatelikes(pokemon.name))} likes`;
+  });
 
   const buttons = document.createElement('div');
   buttons.classList.add('btns');
@@ -216,4 +225,4 @@ const display = async (monster) => {
   buttons.appendChild(reservations);
 };
 
-export { display };
+export default display;
