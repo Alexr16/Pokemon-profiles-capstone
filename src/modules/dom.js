@@ -1,5 +1,5 @@
 import {
-  getPokemon, getLikes, createLikes, getComment,
+  getPokemon, getLikes, createLikes, getComment, sendComment
 } from './api.js';
 
 const body = document.getElementById('body');
@@ -24,6 +24,16 @@ const updatelikes = async (id) => {
     return false;
   });
   return likeApi.likes;
+};
+
+const alert = (message, className) => {
+  const DIV = document.createElement('div');
+  DIV.className = `alert alert-${className}`;
+  DIV.appendChild(document.createTextNode(message));
+  const CONTAINER = document.querySelector('.form');
+  const PAGE = document.querySelector('.formButton');
+  CONTAINER.insertBefore(DIV, PAGE);
+  setTimeout(() => document.querySelector('.alert').remove(), 1500);
 };
 
 const popupWindow = async (pokemon) => {
@@ -98,16 +108,23 @@ const popupWindow = async (pokemon) => {
   modalContainer.appendChild(commentContain);
 
   const dataComment = await getComment(pokemon.name);
+  const count = 0;
 
   const commentTitle = document.createElement('h2');
   commentTitle.classList.add('commentTitle');
-  commentTitle.textContent = `Comments(${dataComment.length})`;
+  if (dataComment.length === undefined) {
+    commentTitle.textContent = `Comments(${count})`;
+  } else {
+    commentTitle.textContent = `Comments(${dataComment.length})`;
+  }
   commentContain.appendChild(commentTitle);
 
   const commentInfo = document.createElement('div');
   commentInfo.classList.add('commentInfo');
+  commentContain.appendChild(commentInfo);
   const ul = document.createElement('ul');
   ul.classList.add('ulComment');
+  ul.id = 'comments';
   commentInfo.appendChild(ul);
 
   for (let i = 0; i < dataComment.length; i += 1) {
@@ -117,16 +134,12 @@ const popupWindow = async (pokemon) => {
     ul.appendChild(li);
   }
 
-  commentContain.appendChild(commentInfo);
-
   const formContain = document.createElement('div');
   formContain.classList.add('formContain');
   modalContainer.appendChild(formContain);
 
   const form = document.createElement('form');
   form.classList.add('form');
-  form.setAttribute('method', 'post');
-  form.setAttribute('action', 'submit.php');
 
   const formTitle = document.createElement('h2');
   formTitle.classList.add('formTitle');
@@ -154,6 +167,19 @@ const popupWindow = async (pokemon) => {
   formButton.setAttribute('type', 'submit');
   formButton.setAttribute('value', 'Comment');
   form.appendChild(formButton);
+
+  formButton.addEventListener('click', async (e) => {
+    e.preventDefault();
+    const formInsight = document.getElementById('formInsight').value;
+    const formName = document.getElementById('formName').value;
+    if (formInsight === '' && formName === '') {
+      alert('Form cannot be empty', 'danger');
+    } else {
+      sendComment(pokemon.name, formName, formInsight);
+      body.classList.toggle('scroll');
+      modalBackground.remove();
+    }
+  });
 
   formContain.appendChild(form);
   modalBackground.appendChild(modalContainer);
