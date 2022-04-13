@@ -70,17 +70,9 @@ body {
   width: 200px;
   height: 200px;
   border: 2px solid black;
-  // box-shadow: 3px 3px #536e87;
   margin-bottom: 1rem;
-  background: radial-gradient(circle, #555555, #535353, #505050, #5a5858, #4c4c4c);
-  box-shadow:
-  0 20px 20px rgba(8,0,0,0.2),
-  0 5px 10px rgba(0,0,0,0.2),
-  0 70px 50px reba(0,0,0,0.4),
-  30px 50px 50px rgba(8,0,0,0.2),
- -30px 50px 50px rgba(0,0,0,0.2),
-  inset 20px 8 60px rgba(0,0,8,0.1),
-  inset -20px 8px 60px rgba(0,0,8,0.1);
+  background: radial-gradient(circle, #555, #535353, #505050, #5a5858, #4c4c4c);
+  box-shadow: 3px 3px #536e87;
 }
 
 .poke-img {
