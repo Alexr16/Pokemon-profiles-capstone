@@ -19,14 +19,8 @@
 - PokeAPI
 - Involvement API
 
-<<<<<<< Updated upstream
 <!-- ## Live Demo
 For a live demo of the Portfolio [click here](https://Alexr16.github.io/Pokemon-profiles-capstone/). -->
-=======
-## Live Demo
-
-For a live demo of the Portfolio [click here](https://Alexr16.github.io/Pokemon-profiles-capstone/).
->>>>>>> Stashed changes
 
 ## Getting Started
 
