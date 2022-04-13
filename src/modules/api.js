@@ -95,7 +95,13 @@ const itemsCounter = () => {
   return count;
 };
 
+const commentsCounter = async (id) => {
+  const dataComment = await getComment(id);
+  const count = dataComment.length;
+  return count;
+};
+
 export {
   idArray, getPokemon, createLikes, getLikes, getComment, createApp, sendComment, itemsCounter,
-  capitalized, sendLike, updatelikes,
+  capitalized, sendLike, updatelikes, commentsCounter,
 };

@@ -1,6 +1,6 @@
 import {
   getPokemon, getComment, sendComment,
-  itemsCounter, capitalized, sendLike, updatelikes,
+  itemsCounter, capitalized, sendLike, updatelikes, commentsCounter,
 } from './api.js';
 
 const body = document.getElementById('body');
@@ -104,7 +104,7 @@ const popupWindow = async (pokemon) => {
   if (dataComment.length === undefined) {
     commentTitle.textContent = `Comments(${count})`;
   } else {
-    commentTitle.textContent = `Comments(${dataComment.length})`;
+    commentTitle.textContent = `Comments(${await commentsCounter(pokemon.name)})`;
   }
   commentContain.appendChild(commentTitle);
 
