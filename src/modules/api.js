@@ -63,7 +63,6 @@ const sendComment = async (pokemon, name, comments) => {
   Promise.resolve(await createComment(data));
 };
 
-
 export {
   getPokemon, createLikes, getLikes, getComment, createApp, sendComment,
 };

@@ -1,5 +1,5 @@
 import {
-  getPokemon, getLikes, createLikes, getComment, sendComment
+  getPokemon, getLikes, createLikes, getComment, sendComment,
 } from './api.js';
 
 const body = document.getElementById('body');
