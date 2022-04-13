@@ -17,3 +17,4 @@ const commentsCounter = () => {
 };
 
 export default commentsCounter;
+

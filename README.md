@@ -2,23 +2,25 @@
 
 # Pokemon-profiles-capstone
 
-> In this project I build a mobile and desktop version of a website, using what I learned in HTML and CSS.
+> In this project We build a web application based on PokeAPI. The app has two interfaces a home page and a popup window. We are using HTML, CSS JavaScript, Webpack, Jest and APIs.
 
-<!-- ## Screenshot
+## Screenshot
 
-<img src="./leaderboard.png">
-<img src="./lmobile.png">-->
+<img src="./homePage.png">
+<img src="./popUP.png">
 
 ## Built With
 
 - HTML
 - CSS
 - JavaScript
-- Webpack
+- Webpackç
+- Jest
+- PokeAPI
+- Involvement API
 
-## Live Demo
-
-For a live demo of the Portfolio [click here](https://Alexr16.github.io/Pokemon-profiles-capstone/).
+<!-- ## Live Demo
+For a live demo of the Portfolio [click here](https://Alexr16.github.io/Pokemon-profiles-capstone/). -->
 
 
 ## Getting Started
@@ -53,6 +55,12 @@ $ open dist/index.html
 - GitHub: [@Alexr16](https://github.com/Alexr16)
 - Twitter: [@ReveloJ](https://twitter.com/ReveloJ)
 - LinkedIn: [Jorge Ríos](https://www.linkedin.com/in/jorge-r%C3%ADos-3b33ab22b)
+
+👤 **Tafara Mafemba**
+
+- GitHub: [@tafaramafemba](https://github.com/tafaramafemba)
+- Twitter: [@the_real_you___](https://twitter.com/the_real_you___)
+- LinkedIn: [Tafara Mafemba](https://www.linkedin.com/in/tafara-mafemba-4b82a0156/)
 
 ## 🤝 Contributing
 
