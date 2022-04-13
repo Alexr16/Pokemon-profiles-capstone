@@ -34,23 +34,35 @@ const getLikes = async () => {
   return likes;
 };
 
-// const createComment = async (data) => {
-//   await fetch(urlComments, {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json; charset=UTF-8',
-//     },
-//     body: JSON.stringify({ item_id: data.item_id, username: data.username,
-//  comment: data.comment }),
-//   });
-// };
+const createComment = async (data) => {
+  await fetch(urlComments, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+    body: JSON.stringify({
+      item_id: data.item_id,
+      username: data.username,
+      comment: data.comment,
+    }),
+  });
+};
 
 const getComment = async (id) => {
   const response = await fetch(`${urlComments}?item_id=${id}`);
-  const likes = await response.json();
+  const likes = Promise.resolve(await response.json());
   return likes;
 };
 
+const sendComment = async (pokemon, name, comments) => {
+  const data = {
+    item_id: pokemon,
+    username: name,
+    comment: comments,
+  };
+  Promise.resolve(await createComment(data));
+};
+
 export {
-  getPokemon, createLikes, getLikes, getComment, createApp,
+  getPokemon, createLikes, getLikes, getComment, createApp, sendComment,
 };
