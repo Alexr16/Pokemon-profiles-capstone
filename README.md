@@ -22,6 +22,7 @@
 <!-- ## Live Demo
 For a live demo of the Portfolio [click here](https://Alexr16.github.io/Pokemon-profiles-capstone/). -->
 
+
 ## Getting Started
 
 To get a local copy of the project, follow these steps: 
