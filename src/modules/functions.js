@@ -1,7 +1,8 @@
 import display from './dom.js';
+import { idArray } from './api.js';
 
+const monsters = idArray();
 const createCards = () => {
-  const monsters = ['charizard', 'pikachu', 'ampharos', 'magmar', 'dragonite', 'mewtwo', 'arcanine', 'lugia', 'altaria'];
   monsters.forEach((pokemon) => display(pokemon));
 };
 

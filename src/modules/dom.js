@@ -1,30 +1,19 @@
 import {
-  getPokemon, getLikes, createLikes, getComment, sendComment,
+  getPokemon, getComment, sendComment,
+  itemsCounter, capitalized, sendLike, updatelikes,
 } from './api.js';
 
 const body = document.getElementById('body');
 
-const capitalized = (string) => {
-  const capit = string.split('');
-  capit[0] = capit[0].toUpperCase();
-  return capit.join('');
-};
-
-const sendLike = async (pokemon) => {
-  const data = {
-    item_id: pokemon,
-  };
-  Promise.resolve(await createLikes(data));
-};
-
-const updatelikes = async (id) => {
-  const data = await Promise.resolve(getLikes());
-  const likeApi = data.find((x) => {
-    if (x.item_id === id) return true;
-    return false;
-  });
-  return likeApi.likes;
-};
+const nav = document.getElementById('menu');
+const ul = document.createElement('ul');
+ul.classList.add('navigation');
+ul.innerHTML = `
+          <li class="nav-link list-link"><a class="link active">Pokedex(${itemsCounter()})</a></li>
+          <li class="nav-link add-new-link"><a class="link">Region</a></li>
+          <li class="nav-link contact-link"><a class="link">Types</a></li>
+`;
+nav.appendChild(ul);
 
 const alert = (message, className) => {
   const DIV = document.createElement('div');
