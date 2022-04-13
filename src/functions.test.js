@@ -1,4 +1,4 @@
-import itemsCounter from "./__mocks__/itemsCounter.js";
+import itemsCounter from './__mocks__/itemsCounter.js';
 
 describe('Test itemsCounter function', () => {
   test('Items are difined', () => {
