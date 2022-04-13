@@ -52,5 +52,5 @@ const getComment = async (id) => {
 };
 
 export {
-  getPokemon, createLikes, getLikes, getComment,
+  getPokemon, createLikes, getLikes, getComment, createApp,
 };
