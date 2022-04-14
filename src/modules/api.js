@@ -55,7 +55,7 @@ const createComment = async (data) => {
 
 const getComment = async (id) => {
   const response = await fetch(`${urlComments}?item_id=${id}`);
-  const likes = Promise.resolve(await response.json());
+  const likes = await response.json();
   return likes;
 };
 
