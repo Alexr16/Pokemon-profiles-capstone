@@ -25,6 +25,13 @@ const alert = (message, className) => {
   setTimeout(() => document.querySelector('.alert').remove(), 1500);
 };
 
+const cleanInput = () => {
+  const formInsight = document.getElementById('formInsight');
+  const formName = document.getElementById('formName');
+  formInsight.value = '';
+  formName.value = '';
+};
+
 const popupWindow = async (pokemon) => {
   const cardContainer = document.getElementById('cards');
   const modalBackground = document.createElement('section');
@@ -164,10 +171,21 @@ const popupWindow = async (pokemon) => {
     if (formInsight === '' && formName === '') {
       alert('Form cannot be empty', 'danger');
     } else {
-      sendComment(pokemon.name, formName, formInsight);
+      await Promise.resolve(sendComment(pokemon.name, formName, formInsight));
+      const dataComment = await Promise.resolve(getComment(pokemon.name));
+      const ul = document.getElementById('comments');
+      while (ul.firstChild) {
+        ul.removeChild(ul.firstChild);
+      }
       body.classList.toggle('scroll');
-      modalBackground.remove();
+      dataComment.forEach((comment) => {
+        const li = document.createElement('li');
+        li.classList.add('liComment');
+        li.innerHTML = `${comment.creation_date} ${comment.username}: ${comment.comment}`;
+        ul.appendChild(li);
+      });
     }
+    cleanInput();
   });
 
   formContain.appendChild(form);
