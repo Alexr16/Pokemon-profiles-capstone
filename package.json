@@ -33,7 +33,7 @@
   "scripts": {
     "build": "webpack",
     "start": "webpack serve --open",
-    "predeploy": "npm run dist",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "linters": "npx eslint . && npx stylelint **/*.{css,scss} && npx hint .",
     "fixlinters": "npx eslint ./src --fix && npx stylelint **/*.{css,scss} --fix",
