@@ -185,6 +185,7 @@ const popupWindow = async (pokemon) => {
         ul.appendChild(li);
       });
     }
+    body.classList.toggle('scroll');
     cleanInput();
   });
 
